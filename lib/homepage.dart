@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:jiffy/jiffy.dart';
 
@@ -126,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                                   decoration:
                                       BoxDecoration(shape: BoxShape.circle),
                                   child: CircleAvatar(
-                                    maxRadius: 40,
+                                    maxRadius: 45,
                                     backgroundImage: NetworkImage(
                                         "http://openweathermap.org/img/wn/02d@2x.png"),
                                   ),
@@ -172,9 +171,8 @@ class _HomePageState extends State<HomePage> {
                                             MediaQuery.of(context).size.height *
                                                 0.02),
                                     Text(
-                                      " ‍🌫️Sunrise ${Jiffy(DateTime.fromMillisecondsSinceEpoch(wetherMap!["sys"]["sunrise"] * 1000))
-                                          .format("h:mm:a")},⭐ Sunset ${Jiffy(DateTime.fromMillisecondsSinceEpoch(wetherMap!
-                                      ["sys"]["sunset"] * 1000)).format("h:mm:a")}",
+                                      " ‍🌫️Sunrise ${Jiffy(DateTime.fromMillisecondsSinceEpoch(wetherMap!["sys"]["sunrise"] * 1000)).format("h:mm:a")},"
+                                      "⭐ Sunset ${Jiffy(DateTime.fromMillisecondsSinceEpoch(wetherMap!["sys"]["sunset"] * 1000)).format("h:mm:a")}",
                                       style: TextStyle(
                                           fontSize: 16, color: Colors.white),
                                     ),
@@ -190,7 +188,8 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     SizedBox(
                       height: 220,
                       child: ListView.builder(
